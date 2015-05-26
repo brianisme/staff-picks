@@ -1,4 +1,13 @@
-angular.module 'staffPicks', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'ui.bootstrap']
+angular.module 'staffPicks', [
+  'app.resources',
+  'ngAnimate',
+  'ngCookies',
+  'ngTouch',
+  'ngSanitize',
+  'ngResource',
+  'ngRoute',
+  'ui.bootstrap'
+  ]
   .config ($routeProvider) ->
     $routeProvider
       .when "/",
