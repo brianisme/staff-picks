@@ -6,6 +6,7 @@ angular.module 'staffPicks', [
   'ngSanitize',
   'ngResource',
   'ngRoute',
+  'duParallax',
   'ui.bootstrap'
   ]
   .config ($routeProvider) ->
