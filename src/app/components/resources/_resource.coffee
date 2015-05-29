@@ -1,1 +1,3 @@
-angular.module('app.resources', ['ngResource'])
+angular.module('staff-picks.resources', [
+  'ngResource'
+])

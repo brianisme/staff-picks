@@ -5,7 +5,7 @@
   "scripts": {
     "test": "gulp test",
     "postinstall": "gem install sass && bower install",
-    "start": "sass -v && node node_modules/gulp/bin/gulp serve"
+    "start": "node node_modules/gulp/bin/gulp serve"
   },
   "devDependencies": {
     "bower": "~1.4.1",
