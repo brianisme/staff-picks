@@ -7,7 +7,10 @@ mod.service 'PlayerService', ($window) ->
 
   self =
     resize: (element) ->
-      element.find('iframe').css('height', $window.innerWidth / RATIO + 'px')
+      windowWidth = $window.innerWidth
+      windowHeight = $window.innerHeight
+      height =  if (windowWidth / windowHeight >= RATIO) then windowHeight else $window.innerWidth / RATIO
+      element.find('iframe').css('height', "#{height}px")
 
   return self
 
@@ -20,7 +23,7 @@ mod.directive "player", ($sce, $window, debounce, PlayerService) ->
   link: (scope, element, attrs) ->
     # Debounce the callback for performance
     # since resize event could be fired multiple times while dragging the window
-    resize = debounce(PlayerService.resize, 500)
+    resize = debounce(PlayerService.resize, 300)
 
     resize(element)
 
