@@ -29,6 +29,3 @@ mod.directive "player", ($sce, $window, debounce, PlayerService) ->
 
     scope.trustedSrc = ->
       $sce.trustAsResourceUrl("#{scope.src}?autoplay=#{scope.autoPlay}")
-
-
-

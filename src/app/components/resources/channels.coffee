@@ -1,5 +1,5 @@
 angular.module('staff-picks.resources').factory 'Channels', ($resource) ->
-  $resource 'http://vimeo.com/api/v2/channel/:id/:attr', { id: 'staffpicks' },
+  $resource '//vimeo.com/api/v2/channel/:id/:attr', { id: 'staffpicks' },
     getVideos:
       method: 'GET'
       params:
