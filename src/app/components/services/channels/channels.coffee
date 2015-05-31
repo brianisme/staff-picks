@@ -1,9 +1,7 @@
 angular.module('staff-picks.services').service 'ChannelService', ($q, Channels) ->
 
-  _channel = null
-  _videos  = []
-
   self =
-    getVideos: ->
-      return $q.when(self.videos) if self.videos?
-      Channels.getVideos()
+    getVideos: (channel_id) ->
+      Channels.getVideos(id: channel_id).$promise
+
+  return self

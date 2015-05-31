@@ -11,11 +11,10 @@ mod.service 'PlayerService', ($window) ->
 
   return self
 
-mod.directive "player", ($sce, $window, debounce, PlayerService) ->
+mod.directive "player", ($sce, $window, debounce, PlayerService, playlist) ->
   restrict: 'E'
   templateUrl: 'app/components/directives/player/player.html'
   scope:
-    src: '='
     autoPlay: '='
   link: (scope, element, attrs) ->
     # Debounce the callback for performance
@@ -27,5 +26,8 @@ mod.directive "player", ($sce, $window, debounce, PlayerService) ->
     angular.element($window).on 'resize', ->
       resize(element)
 
-    scope.trustedSrc = ->
-      $sce.trustAsResourceUrl("#{scope.src}?autoplay=#{scope.autoPlay}")
+    scope.currentVideo = ->
+      id = playlist.current().id
+      url = "#{$location.protocol()}://player.vimeo.com/video/#{id}"
+      $sce.trustAsResourceUrl("#{url}?autoplay=#{scope.autoPlay}")
+
