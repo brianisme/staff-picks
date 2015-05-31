@@ -1,10 +1,8 @@
 angular.module('staff-picks.services').service 'PlaylistService', ($q) ->
 
-  self =
-    new: (videos, repeat=true) ->
+  class Playlist
+    constructor: (@videos, @repeat) ->
       @currentIdx = 0
-      @videos = videos
-      @repeat = repeat
 
     play: (idx) ->
       throw Error("Index out of playlist range: (#{idx})") if idx < 0 or idx > @videos.length - 1
@@ -34,5 +32,12 @@ angular.module('staff-picks.services').service 'PlaylistService', ($q) ->
 
       @play(idx)
 
+
+  self =
+    init: (videos, repeat=true) ->
+      @instance = new Playlist videos, repeat
+
+    getInstance: ->
+      @instance
 
   return self

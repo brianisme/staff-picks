@@ -1,7 +1,7 @@
 angular.module "staffPicks"
-  .controller "MainCtrl", ($scope, $location, parallaxHelper, PlaylistService, videos) ->
+  .controller "MainCtrl", ($scope, $location, parallaxHelper, PlaylistService, playlist) ->
 
     $scope.background = parallaxHelper.createAnimator(-0.6)
 
-    PlaylistService.new(videos)
+    $scope.playlist = playlist
 

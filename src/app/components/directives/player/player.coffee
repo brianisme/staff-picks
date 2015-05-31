@@ -11,11 +11,12 @@ mod.service 'PlayerService', ($window) ->
 
   return self
 
-mod.directive "player", ($sce, $window, debounce, PlayerService, playlist) ->
+mod.directive "player", ($sce, $window, $location, debounce, PlayerService) ->
   restrict: 'E'
   templateUrl: 'app/components/directives/player/player.html'
   scope:
     autoPlay: '='
+    playlist: '='
   link: (scope, element, attrs) ->
     # Debounce the callback for performance
     # since resize event could be fired multiple times while dragging the window
@@ -27,7 +28,7 @@ mod.directive "player", ($sce, $window, debounce, PlayerService, playlist) ->
       resize(element)
 
     scope.currentVideo = ->
-      id = playlist.current().id
+      id = scope.playlist.current().id
       url = "#{$location.protocol()}://player.vimeo.com/video/#{id}"
       $sce.trustAsResourceUrl("#{url}?autoplay=#{scope.autoPlay}")
 

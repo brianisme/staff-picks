@@ -23,8 +23,11 @@ angular.module 'staffPicks', [
       # Application states
       .state 'app',
         url: '/'
+        templateUrl: "app/main/main.html"
+        controller: "MainCtrl as main"
         resolve:
           videos: (ChannelService) ->
             ChannelService.getVideos('staffpicks')
           playlist: (PlaylistService, videos) ->
-            PlaylistService.new(videos)
+            PlaylistService.init(videos)
+            PlaylistService.getInstance()
