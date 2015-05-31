@@ -7,7 +7,10 @@ mod.service 'PlayerService', ($window) ->
 
   self =
     resize: (element) ->
-      element.find('iframe').css('height', $window.innerWidth / RATIO + 'px')
+      height = if $window.innerWidth / $window.innerHeight >= RATIO
+      then $window.innerHeight
+      else $window.innerWidth / RATIO
+      element.find('iframe').css('height', "#{height}px")
 
   return self
 
