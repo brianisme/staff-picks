@@ -10,7 +10,8 @@ angular.module 'staffPicks', [
   'ui.router',
   'staff-picks.resources',
   'staff-picks.services',
-  'staff-picks.player'
+  'staff-picks.player',
+  'staff-picks.playlist'
   ]
   .config ($stateProvider, $urlRouterProvider) ->
 
@@ -24,7 +25,7 @@ angular.module 'staffPicks', [
       .state 'app',
         url: '/'
         templateUrl: "app/main/main.html"
-        controller: "MainCtrl as main"
+        controller: "MainCtrl"
         resolve:
           videos: (ChannelService) ->
             ChannelService.getVideos('staffpicks')

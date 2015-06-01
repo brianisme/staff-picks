@@ -1,0 +1,15 @@
+.row.playlist
+  .col-xs-6.col-md-4(ng-repeat='video in videos')
+    .image-holder(
+      ng-click="play($index)"
+    )
+      img(
+        ng-src='{{video.thumbnail_large}}'
+      )
+
+      .img-overlay
+        .title {{video.title}}
+        .user {{video.user_name}}
+
+        .backdrop
+
