@@ -6,7 +6,8 @@
 .playlist-container
 
   .control
-    .now-playing
+    .play-previous.fa.fa-fast-backward(ng-click="playlist.playPrevious()")
+    span.now-playing
       a.title(
         href='{{playlist.current().url}}'
       ) {{playlist.current().title}}
@@ -14,11 +15,11 @@
       a.user_name(
         href='{{playlist.current().user_url}}'
       ) {{playlist.current().user_name}}
-    .play-next.fa-fast-forward(ng-click="playlist.playNext()")
-    .play-previous.fa-fast-forward(ng-click="playlist.playPrevious()")
+    .play-next.fa.fa-fast-forward(ng-click="playlist.playNext()")
 
-  .arrow-down
 
-  playlist(
-    playlist="playlist"
-  )
+
+  #playlist
+    playlist(
+      playlist="playlist"
+    )

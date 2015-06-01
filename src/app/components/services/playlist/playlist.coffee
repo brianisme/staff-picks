@@ -12,7 +12,7 @@ angular.module('staff-picks.services').service 'PlaylistService', ($q) ->
     current: ->
       @videos[@currentIdx]
 
-    playNext: () ->
+    playNext: ->
       if @currentIdx < @videos.length - 1
         idx = @currentIdx + 1
       else if @repeat

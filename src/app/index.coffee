@@ -6,6 +6,7 @@ angular.module 'staffPicks', [
   'ngResource',
   'ngRoute',
   'duParallax',
+  'duScroll',
   'ui.bootstrap',
   'ui.router',
   'staff-picks.resources',

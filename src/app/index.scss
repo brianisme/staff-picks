@@ -22,28 +22,6 @@ a {
   }
 }
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-
-  iframe {
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.playlist-container {
-  padding: 0 30px 30px 30px;
-  position: relative;
-  z-index: 0;
-  width: 100%;
-  background: #000;
-}
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */

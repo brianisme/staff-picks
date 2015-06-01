@@ -1,3 +1,7 @@
+.show-playlist {
+  cursor: pointer;
+}
+
 .playlist {
 
   .image-holder {
@@ -27,8 +31,8 @@
 
       .user {
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: 5px;
+        right: 10px;
         z-index: 1;
         opacity: 0;
       }
@@ -44,11 +48,11 @@
         height: 100%;
       }
 
-      * {
+      .backdrop, .title, .user  {
         -webkit-transition: all 500ms ease-out;
-          -moz-transition: all 500ms ease-out;
-          -o-transition: all 500ms ease-out;
-          transition: all 500ms ease-out;
+        -moz-transition: all 500ms ease-out;
+        -o-transition: all 500ms ease-out;
+        transition: all 500ms ease-out;
       }
 
       &:hover {
@@ -67,4 +71,38 @@
     }
 
   }
+}
+
+.grid-container{
+  -moz-column-count: 3;
+  -moz-column-gap: 0px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 0px;
+  column-count: 3;
+  column-gap: 0px;
+  /*
+    Weird issue about opacity transition and columns
+    See: https://code.google.com/p/chromium/issues/detail?id=177556
+  */
+  -webkit-column-break-inside:avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+  -webkit-backface-visibility:hidden;
+}
+
+.sub-grid{
+  display: inline-block;
+  width: 100%;
+  /*
+    Weird issue about opacity transition and columns
+    See: https://code.google.com/p/chromium/issues/detail?id=177556
+  */
+  -webkit-column-break-inside:avoid;
+  -moz-column-break-inside:avoid;
+  -o-column-break-inside:avoid;
+  -ms-column-break-inside:avoid;
+  column-break-inside:avoid;
+  -webkit-backface-visibility:hidden;
 }

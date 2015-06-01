@@ -1,5 +1,6 @@
-.row.playlist
-  .col-xs-6.col-md-4(ng-repeat='video in videos')
+.show-playlist.fa.fa-angle-double-down(ng-click="showPlaylist()")
+.playlist.grid-container
+  .sub-grid(ng-repeat='video in videos')
     .image-holder(
       ng-click="play($index)"
     )

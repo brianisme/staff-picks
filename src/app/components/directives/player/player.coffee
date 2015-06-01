@@ -4,17 +4,18 @@ mod = angular.module('staff-picks.player', ['debounce'])
 mod.service 'PlayerService', ($window) ->
 
   RATIO = 1920 / 1080
+  OFFSET = 56
 
   self =
     resize: (element) ->
       windowWidth = $window.innerWidth
       windowHeight = $window.innerHeight
-      height =  if (windowWidth / windowHeight >= RATIO) then windowHeight else windowWidth / RATIO
+      height =  if (windowWidth / windowHeight >= RATIO) then (windowHeight - OFFSET) else windowWidth / RATIO
       element.find('iframe').css('height', "#{height}px")
 
   return self
 
-mod.directive "player", ($sce, $window, $location, debounce, PlayerService) ->
+mod.directive "player", ($sce, $window, $location, $timeout, debounce, PlayerService) ->
   restrict: 'E'
   templateUrl: 'app/components/directives/player/player.html'
   scope:
@@ -34,4 +35,12 @@ mod.directive "player", ($sce, $window, $location, debounce, PlayerService) ->
       id = scope.playlist.current().id
       url = "#{$location.protocol()}://player.vimeo.com/video/#{id}"
       $sce.trustAsResourceUrl("#{url}?autoplay=#{scope.autoPlay}")
+
+    player = $f(element.find('iframe')[0])
+    player.addEvent 'ready', ->
+      player.addEvent 'finish', ->
+        $timeout ->
+          scope.playlist.playNext()
+          scope.$apply()
+        , 2000
 
