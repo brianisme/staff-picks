@@ -14,6 +14,7 @@ $ sudo npm install gulp -g
 
 # Run in local
 ```bash
+$ npm install
 $ gulp serve
 ```
 
