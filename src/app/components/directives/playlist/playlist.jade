@@ -1,4 +1,4 @@
-.show-playlist.fa.fa-angle-double-down(ng-click="showPlaylist()")
+.show-playlist.fa.fa-angle-double-down.hidden-xs(ng-click="showPlaylist()")
 .playlist.grid-container
   .sub-grid(ng-repeat='video in videos')
     .image-holder(
@@ -8,7 +8,7 @@
         ng-src='{{video.thumbnail_large}}'
       )
 
-      .img-overlay
+      .img-overlay.hidden-xs
         .title {{video.title}}
         .user {{video.user_name}}
 
