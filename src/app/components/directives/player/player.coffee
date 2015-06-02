@@ -4,7 +4,7 @@ mod = angular.module('staff-picks.player', ['debounce'])
 mod.service 'PlayerService', ($window) ->
 
   RATIO = 1920 / 1080
-  OFFSET = 56
+  OFFSET = 45
 
   self =
     resize: (element) ->
