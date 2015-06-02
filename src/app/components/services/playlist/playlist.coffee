@@ -32,7 +32,7 @@ angular.module('staff-picks.services').service 'PlaylistService', ($q) ->
 
       @play(idx)
 
-
+  # Singleton
   self =
     init: (videos, repeat=true) ->
       @instance = new Playlist videos, repeat
